@@ -19,7 +19,7 @@ public class Pizza {
 
     private int vegBasePrice = 300;
     private int nonVegBasePrice = 400;
-    private BillGenerator billGenerator;
+//    private BillGenerator billGenerator;
 
 
     public Boolean getVeg() {
@@ -85,7 +85,7 @@ public class Pizza {
         isCheeseAdded = false;
         isToppingsAdded = false;
         takeaway = false;
-        this.billGenerator = new BillGeneratorImplementation();
+//        this.billGenerator = new BillGeneratorImplementation()
         // your code goes here
     }
     public int getBasePrice(){
@@ -136,8 +136,20 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        String bill = billGenerator.getBill(this);
-        this.bill = bill;
+        String var = "";
+        var = var + "Base Price Of The Pizza: " + basePrice + "\n";
+        if(isCheeseAdded == true){
+            var = var + "Extra Cheese Added: " + cheesePrice + "\n";
+        }
+        if(isToppingsAdded == true){
+            var = var + "Extra Toppings Added: " +  toppingPrice + "\n";
+        }
+        if(takeaway == true){
+            var = var + "Paperbag price: " + takeawayPrice + "\n";
+        }
+        var = var + "Total Price: " + price + "\n";
+
+        this.bill = var;
 
         return this.bill;
     }
